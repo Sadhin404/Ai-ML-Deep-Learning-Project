@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2537"/>
+      <stop offset="0.55" stop-color="#0e3a5c"/>
+      <stop offset="1" stop-color="#123a6b"/>
+    </linearGradient>
+    <radialGradient id="heat" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff3b30" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#ff9500" stop-opacity="0.75"/>
+      <stop offset="0.75" stop-color="#ffd60a" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffd60a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd8ef" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#9fd8ef" stop-opacity="0.05"/>
+    </linearGradient>
+    <clipPath id="fanClip">
+      <path d="M320,58 L196,268 A150,150 0 0 0 444,268 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- monitor -->
+  <rect x="14" y="14" width="612" height="332" rx="22" fill="url(#bg)"/>
+  <rect x="14" y="14" width="612" height="332" rx="22" fill="none" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="2"/>
+
+  <!-- faint grid -->
+  <g stroke="#7dd3fc" stroke-opacity="0.07">
+    <path d="M14,74 H626 M14,134 H626 M14,194 H626 M14,254 H626 M14,314 H626"/>
+    <path d="M104,14 V346 M194,14 V346 M284,14 V346 M374,14 V346 M464,14 V346 M554,14 V346"/>
+  </g>
+
+  <!-- ultrasound fan -->
+  <path d="M320,58 L196,268 A150,150 0 0 0 444,268 Z" fill="url(#fan)" stroke="#7dd3fc" stroke-opacity="0.5"/>
+  <g clip-path="url(#fanClip)">
+    <!-- tissue speckle arcs -->
+    <g fill="none" stroke="#e0f2fe" stroke-opacity="0.20">
+      <path d="M250,120 A95,95 0 0 0 390,120"/>
+      <path d="M228,168 A125,125 0 0 0 412,168"/>
+      <path d="M212,214 A142,142 0 0 0 428,214"/>
+    </g>
+    <!-- lesion -->
+    <ellipse cx="338" cy="182" rx="34" ry="24" fill="#0f172a" stroke="#e2e8f0" stroke-opacity="0.65" stroke-width="1.6">
+      <animate attributeName="rx" values="34;37;34" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="24;26;24" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Grad-CAM heat over the lesion -->
+    <ellipse cx="338" cy="182" rx="58" ry="44" fill="url(#heat)">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.25;0.45;0.8;1" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- sweeping scan line -->
+    <g>
+      <line x1="320" y1="58" x2="238" y2="252" stroke="#67e8f9" stroke-width="3" stroke-opacity="0.85"/>
+      <animateTransform attributeName="transform" type="rotate" values="-24 320 58; 24 320 58; -24 320 58" dur="4.5s" repeatCount="indefinite"/>
+    </g>
+  </g>
+
+  <!-- probe -->
+  <rect x="300" y="34" width="40" height="26" rx="8" fill="#e2e8f0"/>
+  <rect x="312" y="24" width="16" height="12" rx="4" fill="#94a3b8"/>
+
+  <!-- label -->
+  <text x="52" y="58" font-family="monospace" font-size="15" fill="#7dd3fc">BUSI · 224 × 224</text>
+  <text x="52" y="82" font-family="monospace" font-size="13" fill="#bae6fd" opacity="0.75">EfficientNet-B0</text>
+  <text x="470" y="58" font-family="monospace" font-size="15" fill="#fda4af">
+    Grad-CAM
+    <animate attributeName="opacity" values="1;0.25;1" dur="6s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- pulse trace -->
+  <path d="M40,300 L150,300 L168,272 L190,322 L206,300 L300,300 L318,278 L338,318 L352,300 L470,300 L488,272 L510,322 L526,300 L600,300"
+        fill="none" stroke="#34d399" stroke-width="2.6" stroke-linecap="round"
+        stroke-dasharray="900" stroke-dashoffset="900">
+    <animate attributeName="stroke-dashoffset" values="900;0" dur="3.6s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- class chips -->
+  <g font-family="monospace" font-size="14" text-anchor="middle">
+    <rect x="120" y="318" width="110" height="0" fill="none"/>
+    <g>
+      <rect x="96" y="316" width="118" height="24" rx="12" fill="#065f46"/>
+      <text x="155" y="333" fill="#a7f3d0">● NORMAL</text>
+    </g>
+    <g>
+      <rect x="261" y="316" width="118" height="24" rx="12" fill="#92400e"/>
+      <text x="320" y="333" fill="#fde68a">● BENIGN</text>
+    </g>
+    <g>
+      <rect x="426" y="316" width="118" height="24" rx="12" fill="#9f1239">
+        <animate attributeName="opacity" values="1;0.55;1" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="485" y="333" fill="#fecdd3">● MALIGNANT</text>
+    </g>
+  </g>
+</svg>

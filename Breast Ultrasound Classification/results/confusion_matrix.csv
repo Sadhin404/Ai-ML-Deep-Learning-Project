@@ -1,0 +1,4 @@
+actual\predicted,normal,benign,malignant
+normal,20,0,0
+benign,2,59,5
+malignant,0,2,29

@@ -16,7 +16,7 @@
 <br/>
 
 <a href="HOW_TO_RUN.md"><img src="https://img.shields.io/badge/%F0%9F%9A%80_HOW_TO_RUN-Step_by_step-0e7490?style=for-the-badge" alt="How to run"/></a>
-<a href="https://github.com/Sadhin404/Deep-Learning-Project/releases/tag/v1.0"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_DOWNLOAD-Dataset_%28archive.zip%29-7c3aed?style=for-the-badge" alt="Download the dataset"/></a>
+<a href="https://drive.google.com/file/d/1YKWN9_Fv1VQwyaszvmQsk0Tcbm6ghpGh/view?usp=sharing"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_DOWNLOAD-Dataset_%28Google_Drive%29-7c3aed?style=for-the-badge" alt="Download the dataset"/></a>
 <a href="paper/"><img src="https://img.shields.io/badge/%F0%9F%93%84_READ-THE_THESIS_PAPER-334155?style=for-the-badge" alt="Read the thesis paper"/></a>
 
 **A final-year thesis project — an AI second reader for breast ultrasound, with an explanation for every decision.**
@@ -109,7 +109,7 @@ Grad-CAM heatmap — the explanation
 
 **780 real images** — Normal 133 · Benign 437 · Malignant 210 — collected at Baheya Hospital, Egypt (Al-Dhabyani et al., *Data in Brief*, 2020). The 798 ground-truth **mask** files are excluded from classification (they are annotations, not scans). One published quirk — a byte-identical image pair carrying two different labels — is documented, not hidden.
 
-📥 **Get it:** [Releases → v1.0 → `archive.zip`](https://github.com/Sadhin404/Deep-Learning-Project/releases/tag/v1.0) · details in [dataset/DATASET.md](dataset/DATASET.md)
+📥 **Get it:** [Download `archive.zip` from Google Drive](https://drive.google.com/file/d/1YKWN9_Fv1VQwyaszvmQsk0Tcbm6ghpGh/view?usp=sharing) · details in [dataset/DATASET.md](dataset/DATASET.md)
 
 ## 🛠 Tech stack
 

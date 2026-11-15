@@ -2,10 +2,10 @@
 
 ## Where the dataset file lives
 
-The dataset zip (**`archive.zip`**, ~204 MB) is **not stored as a regular file in this repository** — GitHub does not allow single files larger than 100 MB in a repo. You can get it in either of these ways:
+The dataset zip (**`archive.zip`**, ~204 MB) is **not stored in this repository** — GitHub does not allow single files larger than 100 MB in a repo. You can get it in either of these ways:
 
-1. **From this repo's Releases (recommended):** [Releases → v1.0 → `archive.zip`](https://github.com/Sadhin404/Deep-Learning-Project/releases/tag/v1.0)
-2. **From Kaggle:** *aryashah2k/breast-ultrasound-images-dataset*
+1. **From Google Drive (recommended):** [Download `archive.zip`](https://drive.google.com/file/d/1YKWN9_Fv1VQwyaszvmQsk0Tcbm6ghpGh/view?usp=sharing) — one file, ~204 MB.
+2. **From Kaggle:** *aryashah2k/breast-ultrasound-images-dataset* — the same `archive.zip`.
 
 Then place it in your Google Drive as **`My Drive/Cancer/archive.zip`** — see **[HOW_TO_RUN.md](../HOW_TO_RUN.md)**.
 

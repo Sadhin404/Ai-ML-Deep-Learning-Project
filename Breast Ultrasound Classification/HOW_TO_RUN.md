@@ -18,10 +18,14 @@ On this repository page: **Code → Download ZIP**, then unzip it on your comput
 
 ## 📦 Step 2 — Get the dataset (`archive.zip`, ~204 MB)
 
-Download **`archive.zip`** from the [**Releases page → v1.0**](https://github.com/Sadhin404/Deep-Learning-Project/releases/tag/v1.0) of this repository.
+Download **`archive.zip`** from Google Drive:
+
+👉 **[Download the dataset (Google Drive)](https://drive.google.com/file/d/1YKWN9_Fv1VQwyaszvmQsk0Tcbm6ghpGh/view?usp=sharing)**
+
+The downloaded file must be about **204 MB** — then it is complete.
 
 > The dataset is the **BUSI** breast ultrasound dataset. It is also available on Kaggle:
-> *aryashah2k/breast-ultrasound-images-dataset* — if you download it from Kaggle instead, the zip you need is the same `archive.zip`.
+> *aryashah2k/breast-ultrasound-images-dataset* — the zip you get there is the same `archive.zip`.
 
 ## 📁 Step 3 — Put the dataset in your Google Drive (⚠️ this step decides success or failure)
 

@@ -91,8 +91,8 @@ pip install ultralytics opencv-python
 - `yolov8m.pt` — the model weights (Ultralytics also downloads it automatically on first run)
 - `traffic.mp4` — the test video
 
-> 📦 **Why aren't the video and weights inside this repo?** `traffic.mp4` is 234 MB and GitHub does not allow files over 100 MB in a repository. The video and all three weight files (`yolov8n.pt`, `yolov8s.pt`, `yolov8m.pt`) are kept in the project's Google Drive folder:
-> **https://drive.google.com/drive/folders/1vn6tw9FwjThnLv1wfH_GbF1REW7T4GyS** → `Model` folder.
+> 📦 **Why aren't the video and weights inside this repo?** `traffic.mp4` is 234 MB and GitHub does not allow files over 100 MB in a repository. The video and all three weight files (`yolov8n.pt`, `yolov8s.pt`, `yolov8m.pt`) are kept in the project's Google Drive folder — full details and the download link are in **[model/DOWNLOAD_FILES.md](model/DOWNLOAD_FILES.md)**:
+> **https://drive.google.com/drive/folders/1Kg839s5E8DNiQAOGJVrLK2Njd572vIlA**
 
 **3. Run**
 
@@ -110,7 +110,8 @@ A window titled **"YOLO Vehicle Detection"** opens and detection starts immediat
 Traffic Detection/
 ├── README.md                  ← you are here
 ├── model/
-│   └── vehicle_detection.py   ← the complete detection program
+│   ├── vehicle_detection.py   ← the complete detection program
+│   └── DOWNLOAD_FILES.md      ← Drive link for the test video + YOLO weights
 ├── assets/
 │   ├── banner.svg             ← animated header
 │   ├── IMG_20251107_212810.jpg

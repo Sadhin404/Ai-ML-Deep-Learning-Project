@@ -18,6 +18,7 @@
 <a href="HOW_TO_RUN.md"><img src="https://img.shields.io/badge/%F0%9F%9A%80_HOW_TO_RUN-Step_by_step-0e7490?style=for-the-badge" alt="How to run"/></a>
 <a href="https://drive.google.com/file/d/1YKWN9_Fv1VQwyaszvmQsk0Tcbm6ghpGh/view?usp=sharing"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_DOWNLOAD-Dataset_%28Google_Drive%29-7c3aed?style=for-the-badge" alt="Download the dataset"/></a>
 <a href="paper/"><img src="https://img.shields.io/badge/%F0%9F%93%84_READ-THE_THESIS_PAPER-334155?style=for-the-badge" alt="Read the thesis paper"/></a>
+<a href="https://sadhin404-breast-ultrasound-ai.static.hf.space"><img src="https://img.shields.io/badge/%F0%9F%8C%90_LIVE_WEBSITE-Try_it_now-059669?style=for-the-badge" alt="Live website"/></a>
 
 **A final-year thesis project — an AI second reader for breast ultrasound, with an explanation for every decision.**
 
@@ -36,6 +37,17 @@ Breast cancer found early is highly treatable — found late, it is often not. T
 | 🔴 **Malignant** | A cancerous lesion |
 
 The model does not just give an answer — with **Grad-CAM** it paints a heatmap over the scan showing **which region drove the decision**, so a doctor can verify the model actually looked at the lesion. It is a **decision-support tool**: a fast, tireless second reader that supports clinicians — never replaces them, and never replaces biopsy, the gold standard.
+
+## 🌐 Live Website — try it now
+
+The trained model is deployed as a web app: upload a breast ultrasound scan and get the prediction with class probabilities, a Grad-CAM heatmap, a **detection box** marking the region that drove the decision, and a downloadable **PDF report**.
+
+**▶ Live demo: [sadhin404-breast-ultrasound-ai.static.hf.space](https://sadhin404-breast-ultrasound-ai.static.hf.space)** — Hugging Face Spaces (free ZeroGPU; the first load after idle can take about a minute)
+
+All the website code and details live in the **[Website/](Website/)** folder:
+
+- `Website/gradio-app/` — the version running live on Hugging Face (Gradio)
+- `Website/web-app/` — the full custom web app (FastAPI + Docker) with the animated interface
 
 ## 🏆 Results — official run (Google Colab, Tesla T4)
 

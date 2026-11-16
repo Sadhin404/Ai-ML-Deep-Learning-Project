@@ -91,7 +91,7 @@ pip install ultralytics opencv-python
 - `yolov8m.pt` — the model weights (Ultralytics also downloads it automatically on first run)
 - `traffic.mp4` — the test video
 
-> 📦 **Why aren't the video and weights inside this repo?** `traffic.mp4` is 234 MB and GitHub does not allow files over 100 MB in a repository. The video and all three weight files (`yolov8n.pt`, `yolov8s.pt`, `yolov8m.pt`) are kept in the project's Google Drive folder — full details and the download link are in **[model/DOWNLOAD_FILES.md](model/DOWNLOAD_FILES.md)**:
+> 📦 The smaller weights (`yolov8n.pt`, `yolov8s.pt`) are **already in the `model/` folder**. The test video (234 MB) and `yolov8m.pt` (52 MB) are too large for a GitHub repo, so they are kept in the project's Google Drive folder — full details and the download link are in **[model/DOWNLOAD_FILES.md](model/DOWNLOAD_FILES.md)**:
 > **https://drive.google.com/drive/folders/1Kg839s5E8DNiQAOGJVrLK2Njd572vIlA**
 
 **3. Run**
@@ -111,7 +111,9 @@ Traffic Detection/
 ├── README.md                  ← you are here
 ├── model/
 │   ├── vehicle_detection.py   ← the complete detection program
-│   └── DOWNLOAD_FILES.md      ← Drive link for the test video + YOLO weights
+│   ├── yolov8n.pt             ← YOLOv8 nano weights
+│   ├── yolov8s.pt             ← YOLOv8 small weights
+│   └── DOWNLOAD_FILES.md      ← Drive link for the test video + yolov8m weight
 ├── assets/
 │   ├── banner.svg             ← animated header
 │   ├── IMG_20251107_212810.jpg

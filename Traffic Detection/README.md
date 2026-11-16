@@ -79,6 +79,8 @@ Motorbike is the hardest class — the smallest and fastest vehicle, often partl
 
 ## ▶️ How to Run
 
+> 🐣 **Complete beginner?** Follow the full step-by-step guide — from checking Python and setting up VS Code to the first run, with fixes for every common error: **[model/HOW_TO_RUN.md](model/HOW_TO_RUN.md)**
+
 **1. Install the two libraries**
 
 ```bash
@@ -111,6 +113,7 @@ Traffic Detection/
 ├── README.md                  ← you are here
 ├── model/
 │   ├── vehicle_detection.py   ← the complete detection program
+│   ├── HOW_TO_RUN.md          ← beginner step-by-step setup & run guide
 │   ├── yolov8n.pt             ← YOLOv8 nano weights
 │   ├── yolov8s.pt             ← YOLOv8 small weights
 │   └── DOWNLOAD_FILES.md      ← Drive link for the test video + yolov8m weight

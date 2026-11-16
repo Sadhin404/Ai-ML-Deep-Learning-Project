@@ -42,7 +42,9 @@ The model does not just give an answer — with **Grad-CAM** it paints a heatmap
 
 The trained model is deployed as a web app: upload a breast ultrasound scan and get the prediction with class probabilities, a Grad-CAM heatmap, a **detection box** marking the region that drove the decision, and a downloadable **PDF report**.
 
-**▶ Live demo: [sadhin404-breast-ultrasound-ai.static.hf.space](https://sadhin404-breast-ultrasound-ai.static.hf.space)** — Hugging Face Spaces (free ZeroGPU; the first load after idle can take about a minute)
+**▶ Live demo: [sadhin404-breast-ultrasound-ai.static.hf.space](https://sadhin404-breast-ultrasound-ai.static.hf.space)** — Hugging Face Spaces (static hosting; the model runs 100% in your browser, no server to wake up)
+
+**▶ Short link: [is.gd/BreastUltrasoundAI](https://is.gd/BreastUltrasoundAI)** — the same live site, short enough to type or say out loud
 
 All the website code and details live in the **[Website/](../Website/)** folder:
 

@@ -1,16 +1,21 @@
 {
+  "architecture": "EfficientNet-B3 ensemble (3 members)",
   "batch_size": 16,
   "data_dir": "/content/data/BUSI/Dataset_BUSI_with_GT",
   "device": "cuda",
-  "epochs": 20,
+  "ema_decay": 0.99,
+  "epochs": 30,
   "img_size": 224,
   "label_smoothing": 0.05,
-  "lr": 0.0003,
-  "output_dir": "outputs",
-  "patience": 8,
-  "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
-  "seed": 42,
-  "torch": "2.14.1+cu130",
+  "lr": 0.0002,
+  "member_seeds": [
+    42,
+    7,
+    123
+  ],
+  "split_seed": 42,
+  "test_images": 117,
+  "train_images": 663,
   "weight_decay": 0.0001,
   "workers": 2
 }

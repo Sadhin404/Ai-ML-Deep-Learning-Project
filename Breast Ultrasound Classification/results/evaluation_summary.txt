@@ -1,9 +1,9 @@
-EVALUATION SUMMARY
+EVALUATION SUMMARY — EfficientNet-B3 ENSEMBLE
 ==================
 Test samples: 117
-Accuracy: 92.31%
-Macro F1: 92.46%
-Weighted F1: 92.34%
-ROC-AUC (one-vs-rest): {'benign': 0.973, 'macro_average': 0.9807, 'malignant': 0.9692, 'normal': 1.0}
-Best validation macro F1: 0.8973
+Accuracy: 96.58%
+Macro F1: 96.78%
+Weighted F1: 96.55%
+ROC-AUC (one-vs-rest): {'benign': 0.9893, 'macro_average': 0.9929, 'malignant': 0.9895, 'normal': 1.0000}
+Ensemble members (EfficientNet-B3, EMA weights): seeds 42, 7, 123 — each 94.87% alone
 Full per-class report: classification_report.txt | Matrix: confusion_matrix.csv | Predictions: test_predictions.csv

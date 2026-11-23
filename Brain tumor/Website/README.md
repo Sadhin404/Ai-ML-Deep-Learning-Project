@@ -6,10 +6,10 @@ a **focus box** on the region that drove the decision, and a downloadable **PDF 
 
 ## ▶ Live demo
 
-**https://sadhin404-brain-tumor-mri-ai.static.hf.space**
-(Hugging Face Space: https://huggingface.co/spaces/Sadhin404/brain-tumor-mri-ai)
+**https://fcub-cse-brain-tumor-mri-ai.static.hf.space**
+(Hugging Face Space: https://huggingface.co/spaces/FCUB-CSE/brain-tumor-mri-ai)
 
-**Short link: https://is.gd/BrainTumorMRI**
+**Short link: https://tinyurl.com/BrainTumorMRI**
 
 The live version is the **static app** below: the model runs **entirely in the visitor's
 browser** (ONNX Runtime Web), so the site never sleeps and uploaded scans never leave the device.

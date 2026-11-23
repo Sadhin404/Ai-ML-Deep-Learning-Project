@@ -18,7 +18,7 @@
 <a href="HOW_TO_RUN.md"><img src="https://img.shields.io/badge/%F0%9F%9A%80_HOW_TO_RUN-Step_by_step-0e7490?style=for-the-badge" alt="How to run"/></a>
 <a href="https://drive.google.com/file/d/171SvOajLgFVQg6THsoBHnzSJofJpGlFp/view?usp=sharing"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_DOWNLOAD-Dataset_%28Google_Drive%29-7c3aed?style=for-the-badge" alt="Download the dataset"/></a>
 <a href="../paper/"><img src="https://img.shields.io/badge/%F0%9F%93%84_READ-THE_PAPER-334155?style=for-the-badge" alt="Read the paper"/></a>
-<a href="https://sadhin404-brain-tumor-mri-ai.static.hf.space"><img src="https://img.shields.io/badge/%F0%9F%8C%90_LIVE_WEBSITE-Try_it_now-059669?style=for-the-badge" alt="Live website"/></a>
+<a href="https://fcub-cse-brain-tumor-mri-ai.static.hf.space"><img src="https://img.shields.io/badge/%F0%9F%8C%90_LIVE_WEBSITE-Try_it_now-059669?style=for-the-badge" alt="Live website"/></a>
 
 **The project code, organised as plain Python files — the same code that runs in the Colab notebook.**
 
@@ -50,7 +50,7 @@ The full project README is one level up: **[../README.md](../README.md)**. This 
 
 The trained model runs as a web app — prediction, class probabilities, Grad-CAM heatmap, focus box and a downloadable PDF report, 100% in the browser:
 
-**▶ Live demo: [sadhin404-brain-tumor-mri-ai.static.hf.space](https://sadhin404-brain-tumor-mri-ai.static.hf.space)** · **Short link: [is.gd/BrainTumorMRI](https://is.gd/BrainTumorMRI)** — code in [`../Website/`](../Website/)
+**▶ Live demo: [fcub-cse-brain-tumor-mri-ai.static.hf.space](https://fcub-cse-brain-tumor-mri-ai.static.hf.space)** · **Short link: [tinyurl.com/BrainTumorMRI](https://tinyurl.com/BrainTumorMRI)** — code in [`../Website/`](../Website/)
 
 ## 🏆 Results — official run (Google Colab, Tesla T4)
 

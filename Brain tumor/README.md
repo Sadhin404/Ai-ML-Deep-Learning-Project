@@ -18,7 +18,7 @@
 <a href="model/BrainTumor.ipynb"><img src="https://img.shields.io/badge/%F0%9F%9A%80_RUN-THE_NOTEBOOK-0e7490?style=for-the-badge" alt="Run the notebook"/></a>
 <a href="https://drive.google.com/file/d/171SvOajLgFVQg6THsoBHnzSJofJpGlFp/view?usp=sharing"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_DOWNLOAD-Dataset_%28Google_Drive%29-7c3aed?style=for-the-badge" alt="Download the dataset"/></a>
 <a href="paper/"><img src="https://img.shields.io/badge/%F0%9F%93%84_READ-THE_PAPER-334155?style=for-the-badge" alt="Read the paper"/></a>
-<a href="https://sadhin404-brain-tumor-mri-ai.static.hf.space"><img src="https://img.shields.io/badge/%F0%9F%8C%90_LIVE_WEBSITE-Try_it_now-059669?style=for-the-badge" alt="Live website"/></a>
+<a href="https://fcub-cse-brain-tumor-mri-ai.static.hf.space"><img src="https://img.shields.io/badge/%F0%9F%8C%90_LIVE_WEBSITE-Try_it_now-059669?style=for-the-badge" alt="Live website"/></a>
 <a href="https://github.com/Sadhin404/Ai-ML-Deep-Learning-Project/releases/tag/brain-tumor-v1.0"><img src="https://img.shields.io/badge/%F0%9F%A7%A0_TRAINED_MODEL-Download_.pth-2563eb?style=for-the-badge" alt="Trained model"/></a>
 
 **A deep-learning project — an AI second reader for brain MRI, with an explanation for every decision.**
@@ -44,9 +44,9 @@ The system does not just give an answer — with **Grad-CAM** it paints a heatma
 
 The trained model is deployed as a web app: upload a brain MRI scan and get the prediction with class probabilities, a Grad-CAM heatmap, a **focus box** marking the region that drove the decision, and a downloadable **PDF report**. The site also checks that the uploaded image really looks like an MRI scan before analysing it.
 
-**▶ Live demo: [sadhin404-brain-tumor-mri-ai.static.hf.space](https://sadhin404-brain-tumor-mri-ai.static.hf.space)** — Hugging Face Spaces (static hosting; the model runs 100% in your browser, no server to wake up)
+**▶ Live demo: [fcub-cse-brain-tumor-mri-ai.static.hf.space](https://fcub-cse-brain-tumor-mri-ai.static.hf.space)** — Hugging Face Spaces (static hosting; the model runs 100% in your browser, no server to wake up)
 
-**▶ Short link: [is.gd/BrainTumorMRI](https://is.gd/BrainTumorMRI)** — the same live site, short enough to type or say out loud
+**▶ Short link: [tinyurl.com/BrainTumorMRI](https://tinyurl.com/BrainTumorMRI)** — the same live site, short enough to type or say out loud
 
 All the website code and details live in the **[Website/](Website/)** folder:
 

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2537"/>
+      <stop offset="0.55" stop-color="#0e7490"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="heat" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff2d2d"/>
+      <stop offset="0.45" stop-color="#ffb300"/>
+      <stop offset="0.75" stop-color="#2dff6a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2d6aff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <!-- scan panel -->
+  <rect x="70" y="50" width="230" height="230" rx="14" fill="#0a0f16"/>
+  <rect x="70" y="50" width="230" height="230" rx="14" fill="none" stroke="#38e1ff" stroke-opacity="0.5" stroke-width="2"/>
+  <!-- brain outline -->
+  <path d="M150 120 a38 34 0 0 1 30-30 a30 26 0 0 1 42 6 a34 30 0 0 1 26 30 a36 32 0 0 1 -8 44 a30 26 0 0 1 -40 16 a34 30 0 0 1 -44 -8 a36 32 0 0 1 -14 -40 a34 30 0 0 1 8 -18z" fill="#9fb6c9"/>
+  <path d="M185 92 v96 M150 130 h84 M158 168 h64" stroke="#5b7a90" stroke-width="3" fill="none"/>
+  <!-- heatmap blob on the scan -->
+  <circle cx="212" cy="128" r="34" fill="url(#heat)"/>
+  <!-- focus box -->
+  <rect x="176" y="92" width="74" height="74" rx="6" fill="none" stroke="#e11d48" stroke-width="3"/>
+  <rect x="176" y="66" width="118" height="20" rx="5" fill="#e11d48"/>
+  <text x="235" y="80" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">GLIOMA · 98%</text>
+  <!-- heatmap panel -->
+  <rect x="340" y="50" width="230" height="230" rx="14" fill="#0a0f16"/>
+  <rect x="340" y="50" width="230" height="230" rx="14" fill="none" stroke="#8b5cf6" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="455" cy="165" r="86" fill="url(#heat)"/>
+  <path d="M392 108 a38 34 0 0 1 30-30 a30 26 0 0 1 42 6 a34 30 0 0 1 26 30 a36 32 0 0 1 -8 44 a30 26 0 0 1 -40 16 a34 30 0 0 1 -44 -8 a36 32 0 0 1 -14 -40 a34 30 0 0 1 8 -18z" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2" transform="translate(63,57)"/>
+  <!-- captions -->
+  <text x="185" y="312" font-family="monospace" font-size="15" fill="#e8f6ff" text-anchor="middle">BRAIN MRI SCAN</text>
+  <text x="455" y="312" font-family="monospace" font-size="15" fill="#e8f6ff" text-anchor="middle">GRAD-CAM HEATMAP</text>
+  <text x="320" y="342" font-family="monospace" font-size="13" fill="#bfe9ff" text-anchor="middle">DenseNet-201 · Explainable AI</text>
+</svg>

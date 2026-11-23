@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Brain Tumor MRI AI — Explainable Classification</title>
+<meta name="description" content="Upload a brain MRI image and get an explainable AI analysis with Grad-CAM visualisation and a downloadable PDF report.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9.5 3.5A2.5 2.5 0 0 0 7 6c-1.9.3-3 1.7-3 3.4 0 .6.1 1.1.4 1.6C4.1 11.5 4 12 4 12.6c0 1.9 1.4 3.2 3.2 3.4A2.6 2.6 0 0 0 9.5 20.5c.8 0 1.5-.7 1.5-1.5V5c0-.8-.7-1.5-1.5-1.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.5 3.5A2.5 2.5 0 0 1 17 6c1.9.3 3 1.7 3 3.4 0 .6-.1 1.1-.4 1.6.3.5.4 1 .4 1.6 0 1.9-1.4 3.2-3.2 3.4A2.6 2.6 0 0 1 14.5 20.5c-.8 0-1.5-.7-1.5-1.5V5c0-.8.7-1.5 1.5-1.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    </div>
+    <div>
+      <div class="brand-name">Brain Tumor MRI <span>AI</span></div>
+      <div class="brand-sub">Explainable classification · DenseNet-201 + Grad-CAM</div>
+    </div>
+  </div>
+  <div class="top-stats">
+    <div class="chip"><b>99.47%</b> accuracy</div>
+    <div class="chip"><b>99.46%</b> macro F1</div>
+    <div class="chip hide-sm"><b>1,311</b> test images</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Brain MRI, <span class="accent">explained.</span></h1>
+    <p class="hero-sub">Drop in a brain MRI image — the AI classifies it as <span class="pill p-glioma">Glioma</span> <span class="pill p-meningioma">Meningioma</span> <span class="pill p-pituitary">Pituitary</span> or <span class="pill p-notumor">No Tumor</span>, shows exactly where it looked with Grad-CAM, and prepares a full PDF report.</p>
+  </section>
+
+  <section class="card" id="mainCard">
+    <div class="cols">
+      <!-- LEFT : upload -->
+      <div class="col">
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload a brain MRI image">
+          <svg class="dz-icon" viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0 4 4m-4-4L8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div class="dz-title">Drag &amp; drop your MRI image</div>
+          <div class="dz-sub">or <span class="dz-link">browse from your device</span> · PNG / JPG up to 15 MB</div>
+          <input type="file" id="fileInput" accept="image/*" hidden>
+        </div>
+
+        <div id="previewBox" class="preview hidden">
+          <img id="previewImg" alt="Uploaded MRI preview">
+          <div class="preview-meta">
+            <div id="fileName" class="file-name"></div>
+            <button id="removeBtn" class="btn-ghost" type="button">✕ Remove</button>
+          </div>
+        </div>
+
+        <div class="samples">
+          <div class="samples-title">No image handy? Try a sample scan:</div>
+          <div class="sample-row">
+            <button class="sample" data-sample="sample_glioma.jpg" type="button"><img src="samples/sample_glioma.jpg" alt="Sample glioma MRI"><span>Glioma</span></button>
+            <button class="sample" data-sample="sample_meningioma.jpg" type="button"><img src="samples/sample_meningioma.jpg" alt="Sample meningioma MRI"><span>Meningioma</span></button>
+            <button class="sample" data-sample="sample_notumor.jpg" type="button"><img src="samples/sample_notumor.jpg" alt="Sample healthy MRI"><span>No Tumor</span></button>
+            <button class="sample" data-sample="sample_pituitary.jpg" type="button"><img src="samples/sample_pituitary.jpg" alt="Sample pituitary MRI"><span>Pituitary</span></button>
+          </div>
+        </div>
+
+        <button id="analyzeBtn" class="btn-primary" type="button" disabled>
+          <span class="btn-label">Analyze image</span>
+          <span class="spinner hidden"></span>
+        </button>
+        <div id="errorBox" class="error hidden"></div>
+      </div>
+
+      <!-- RIGHT : results -->
+      <div class="col">
+        <div id="emptyState" class="empty">
+          <div class="empty-ring"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-3.8-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <p>Your analysis will appear here — prediction, confidence, class probabilities and the Grad-CAM explanation.</p>
+        </div>
+
+        <div id="resultBox" class="result hidden">
+          <div class="result-head">
+            <div>
+              <div class="result-label">AI PREDICTION</div>
+              <div id="predClass" class="pred-class">—</div>
+            </div>
+            <div class="ring-wrap">
+              <svg class="ring" viewBox="0 0 84 84">
+                <circle class="ring-bg" cx="42" cy="42" r="36"/>
+                <circle class="ring-fg" id="ringFg" cx="42" cy="42" r="36"/>
+              </svg>
+              <div class="ring-num" id="confNum">0%</div>
+              <div class="ring-cap">confidence</div>
+            </div>
+          </div>
+
+          <div class="bars" id="bars"></div>
+
+          <div class="viewer">
+            <div class="viewer-bar">
+              <div class="seg" role="tablist">
+                <button class="seg-btn active" data-view="original" type="button">Original</button>
+                <button class="seg-btn" data-view="heatmap" type="button">Heatmap</button>
+                <button class="seg-btn" data-view="overlay" type="button">Overlay</button>
+              </div>
+              <button id="bboxToggle" class="seg-btn toggle active" type="button">▣ Focus box</button>
+            </div>
+            <div class="viewer-frame">
+              <img id="viewBase" alt="Analysis view">
+              <img id="viewTop" alt="" class="hidden">
+              <div id="bbox" class="bbox hidden"><span class="bbox-label" id="bboxLabel"></span></div>
+            </div>
+            <div class="blend-row" id="blendRow">
+              <span>Original</span>
+              <input type="range" id="blend" min="0" max="100" value="100">
+              <span>Overlay</span>
+            </div>
+            <p class="viewer-note">Grad-CAM shows where the model looked — red/yellow influenced the decision most. It is a sensitivity map, not medical proof.</p>
+          </div>
+
+          <div class="actions">
+            <a id="reportBtn" class="btn-report" href="#" download>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Download Report (PDF)
+            </a>
+            <button id="againBtn" class="btn-ghost big" type="button">Analyze another image</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-card"><div class="how-n">1</div><h3>Upload</h3><p>Any brain MRI image from your PC or phone.</p></div>
+    <div class="how-card"><div class="how-n">2</div><h3>AI analysis</h3><p>A DenseNet-201 model, trained on 7,023 brain MRI images, classifies the scan in a few seconds — right in your browser.</p></div>
+    <div class="how-card"><div class="how-n">3</div><h3>Explanation</h3><p>Grad-CAM highlights the regions behind the decision — no black box.</p></div>
+    <div class="how-card"><div class="how-n">4</div><h3>PDF report</h3><p>Download a clean, printable report of the full analysis.</p></div>
+  </section>
+
+  <section class="classes">
+    <h2>The four classes</h2>
+    <div class="class-grid">
+      <div class="class-card"><span class="dot glioma"></span><h3>Glioma</h3><p>Grows from glial cells inside the brain tissue itself — the most complex tumour type.</p></div>
+      <div class="class-card"><span class="dot meningioma"></span><h3>Meningioma</h3><p>Arises from the meninges, the membranes covering the brain. Usually slow-growing and benign.</p></div>
+      <div class="class-card"><span class="dot pituitary"></span><h3>Pituitary</h3><p>A growth in the pituitary gland beneath the brain — can affect hormones and vision.</p></div>
+      <div class="class-card"><span class="dot notumor"></span><h3>No Tumor</h3><p>No tumour found — the scan shows a healthy brain.</p></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-main">CSE, First Capital University of Bangladesh</p>
+    <p class="foot-warn">⚠️ Research &amp; education tool — <b>not a medical diagnosis</b>. Always consult a qualified doctor; only clinical examination and biopsy can confirm a diagnosis.</p>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.wasm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

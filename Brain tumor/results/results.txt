@@ -1,0 +1,19 @@
+Brain Tumor Classification - DenseNet-201
+Dataset: Brain Tumor MRI Dataset (Kaggle, original split)
+
+Test Accuracy : 99.47%
+Test Macro F1 : 99.46%
+
+Class wise (Precision / Recall / F1 / Total):
+glioma       100.00 / 99.33 / 99.67 / 300
+meningioma   98.07 / 99.67 / 98.87 / 306
+notumor      99.75 / 99.51 / 99.63 / 405
+pituitary    100.00 / 99.33 / 99.67 / 300
+
+Confusion Matrix:
+[[298   2   0   0]
+ [  0 305   1   0]
+ [  0   2 403   0]
+ [  0   2   0 298]]
+
+Errors: 7 / 1311

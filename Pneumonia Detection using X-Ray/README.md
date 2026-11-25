@@ -7,10 +7,22 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Test_Accuracy-95.35%25-brightgreen?style=for-the-badge" alt="Test Accuracy 95.35%"/>
-  <img src="https://img.shields.io/badge/Macro_F1-94.96%25-blue?style=for-the-badge" alt="Macro F1 94.96%"/>
-  <img src="https://img.shields.io/badge/Models-DenseNet121_vs_ResNet50-orange?style=for-the-badge" alt="DenseNet121 vs ResNet50"/>
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/PYTHON-3.13-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.13"/>
+  <img src="https://img.shields.io/badge/PYTORCH-2.14-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch 2.14"/>
+  <img src="https://img.shields.io/badge/MODEL-DENSENET121-0e7490?style=flat-square" alt="Model DenseNet121"/>
+  <img src="https://img.shields.io/badge/ACCURACY-95.35%25-7c3aed?style=flat-square" alt="Accuracy 95.35%"/>
+</p>
+
+<p align="center">
+  <a href="model/Pneumonia.ipynb"><img src="https://img.shields.io/badge/🚀_RUN-THE_NOTEBOOK-0e7490?style=flat-square" alt="Run the notebook"/></a>
+  <a href="https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia"><img src="https://img.shields.io/badge/⬇_DOWNLOAD-DATASET_(KAGGLE)-7c3aed?style=flat-square" alt="Download the dataset from Kaggle"/></a>
+  <a href="paper/Pneumonia_Paper.pdf"><img src="https://img.shields.io/badge/📄_READ-THE_PAPER-475569?style=flat-square" alt="Read the paper"/></a>
+  <a href="https://fcub-cse-pneumonia-xray-ai.static.hf.space"><img src="https://img.shields.io/badge/🌐_LIVE_WEBSITE-TRY_IT_NOW-059669?style=flat-square" alt="Try the live website"/></a>
+  <a href="https://github.com/Sadhin404/Ai-ML-Deep-Learning-Project/releases/download/pneumonia-v1.0/best_DenseNet121.pth"><img src="https://img.shields.io/badge/🧠_TRAINED_MODEL-DOWNLOAD_.PTH-2563eb?style=flat-square" alt="Download the trained model"/></a>
+</p>
+
+<p align="center">
+  <i>A deep-learning project — an AI second reader for chest X-rays, with an explanation for every decision.</i>
 </p>
 
 <p align="center">

@@ -1,0 +1,3 @@
+model,best_val_acc,test_acc,precision_macro,recall_macro,f1_macro
+efficientnet_b0,1.0,1.0,1.0,1.0,1.0
+mobilenet_v2,1.0,1.0,1.0,1.0,1.0

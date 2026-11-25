@@ -1,0 +1,121 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px 48px; }
+
+h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.drop {
+  border: 2px dashed #c9c9c9;
+  border-radius: 10px;
+  padding: 28px 16px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafa;
+}
+.drop.dragover { border-color: #2e7d32; background: #f1f8f1; }
+.drop p { color: #444; }
+.drop p span { color: #888; font-size: 0.9rem; }
+.drop-icon { font-size: 2rem; margin-bottom: 6px; }
+.drop img { max-width: 100%; max-height: 320px; border-radius: 8px; }
+
+.models {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+.model-option { flex: 1; }
+.model-option input { display: none; }
+.model-option span {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  background: #fff;
+}
+.model-option input:checked + span {
+  border-color: #2e7d32;
+  color: #2e7d32;
+  background: #f1f8f1;
+}
+
+#analyseBtn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #2e7d32;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#analyseBtn:disabled { background: #bdbdbd; cursor: not-allowed; }
+#analyseBtn:not(:disabled):hover { background: #27692b; }
+
+.status { text-align: center; color: #777; font-size: 0.9rem; min-height: 1.2em; margin-top: 10px; }
+
+#result { margin-top: 18px; border-top: 1px solid #eee; padding-top: 18px; }
+.result-name { text-align: center; margin-bottom: 16px; }
+.result-label { display: block; font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+#diseaseName { font-size: 1.6rem; font-weight: 700; color: #2e7d32; }
+
+.steps {
+  text-align: left;
+  background: #f7faf7;
+  border: 1px solid #e0ece0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.steps h3 { font-size: 1rem; color: #2e7d32; margin-bottom: 8px; }
+.steps ol { margin-left: 20px; color: #333; }
+.steps li { margin-bottom: 6px; }
+.steps li:last-child { margin-bottom: 0; }
+
+.cam-row { display: flex; gap: 14px; }
+.cam-row figure { flex: 1; text-align: center; }
+.cam-row img { width: 100%; border-radius: 8px; border: 1px solid #eee; }
+.cam-row figcaption { font-size: 0.85rem; color: #777; margin-top: 6px; }
+
+.samples { margin-top: 28px; }
+.samples h2 { font-size: 1.05rem; text-align: center; margin-bottom: 12px; }
+.sample-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.sample {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  cursor: pointer;
+}
+.sample:hover { border-color: #2e7d32; }
+.sample img { width: 100%; height: 84px; object-fit: cover; border-radius: 6px; display: block; }
+.sample span { display: block; font-size: 0.8rem; font-weight: 600; margin-top: 6px; color: #333; }
+
+@media (max-width: 560px) {
+  .sample-grid { grid-template-columns: repeat(2, 1fr); }
+  .cam-row { flex-direction: column; }
+  h1 { font-size: 1.2rem; }
+}

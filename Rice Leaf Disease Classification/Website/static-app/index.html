@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rice Leaf Disease Classification — EfficientNet-B0 vs MobileNetV2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <h1>A Comparative Study of EfficientNet-B0 and MobileNetV2 for Explainable Rice Leaf Disease Classification with Grad-CAM</h1>
+
+  <section class="card">
+    <div id="drop" class="drop">
+      <input type="file" id="fileInput" accept="image/*" hidden>
+      <div id="dropHint">
+        <div class="drop-icon">🌿</div>
+        <p>Click to upload a rice leaf image<br><span>or drag &amp; drop it here</span></p>
+      </div>
+      <img id="preview" alt="Uploaded rice leaf" hidden>
+    </div>
+
+    <div class="models">
+      <label class="model-option">
+        <input type="radio" name="model" value="efficientnet_b0" checked>
+        <span>EfficientNet-B0</span>
+      </label>
+      <label class="model-option">
+        <input type="radio" name="model" value="mobilenet_v2">
+        <span>MobileNetV2</span>
+      </label>
+    </div>
+
+    <button id="analyseBtn" disabled>Analyse</button>
+    <p id="status" class="status"></p>
+
+    <div id="result" hidden>
+      <div class="result-name">
+        <span class="result-label">Disease detected</span>
+        <span id="diseaseName"></span>
+      </div>
+      <div class="steps">
+        <h3>You should take these steps:</h3>
+        <ol id="stepsList"></ol>
+      </div>
+      <div class="cam-row">
+        <figure>
+          <img id="origImg" alt="Analysed leaf image">
+          <figcaption>Leaf image</figcaption>
+        </figure>
+        <figure>
+          <img id="camImg" alt="Grad-CAM heatmap">
+          <figcaption>Grad-CAM — where the model looked</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="samples">
+    <h2>Try a sample</h2>
+    <div class="sample-grid">
+      <button class="sample" data-src="samples/bacterial_blight.jpg">
+        <img src="samples/bacterial_blight.jpg" alt="Bacterial Blight sample">
+        <span>Bacterial Blight</span>
+      </button>
+      <button class="sample" data-src="samples/blast.jpg">
+        <img src="samples/blast.jpg" alt="Blast sample">
+        <span>Blast</span>
+      </button>
+      <button class="sample" data-src="samples/brown_spot.jpg">
+        <img src="samples/brown_spot.jpg" alt="Brown Spot sample">
+        <span>Brown Spot</span>
+      </button>
+      <button class="sample" data-src="samples/tungro.jpg">
+        <img src="samples/tungro.jpg" alt="Tungro sample">
+        <span>Tungro</span>
+      </button>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.wasm.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

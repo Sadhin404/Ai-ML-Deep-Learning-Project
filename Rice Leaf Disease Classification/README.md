@@ -118,7 +118,7 @@ Grad-CAM heatmap — the explanation
 
 **5,932 leaf images** in four classes, roughly 300 × 300 pixels each:
 
-| Class | Images | Share of test set |
+| Class | Images | In test set |
 | --- | --- | --- |
 | Bacterial Blight | 1,584 | 237 |
 | Blast | 1,440 | 216 |

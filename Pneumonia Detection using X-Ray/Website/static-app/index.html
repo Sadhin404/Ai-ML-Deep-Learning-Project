@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pneumonia X-Ray AI — Explainable Classification</title>
+<meta name="description" content="Upload a chest X-ray image and get an explainable AI analysis with Grad-CAM visualisation and a downloadable PDF report.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫁</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9.5 3.5A2.5 2.5 0 0 0 7 6c-1.9.3-3 1.7-3 3.4 0 .6.1 1.1.4 1.6C4.1 11.5 4 12 4 12.6c0 1.9 1.4 3.2 3.2 3.4A2.6 2.6 0 0 0 9.5 20.5c.8 0 1.5-.7 1.5-1.5V5c0-.8-.7-1.5-1.5-1.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.5 3.5A2.5 2.5 0 0 1 17 6c1.9.3 3 1.7 3 3.4 0 .6-.1 1.1-.4 1.6.3.5.4 1 .4 1.6 0 1.9-1.4 3.2-3.2 3.4A2.6 2.6 0 0 1 14.5 20.5c-.8 0-1.5-.7-1.5-1.5V5c0-.8.7-1.5 1.5-1.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="brand-name">Pneumonia X-Ray <span>AI</span></div>
+  </div>
+  <div class="top-badge">DenseNet121 · Grad-CAM</div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Chest X-ray, <span class="accent">explained.</span></h1>
+  </section>
+
+  <section class="panel" id="mainCard">
+    <div class="up-grid">
+      <div>
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload a chest X-ray image">
+          <svg class="dz-icon" viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0 4 4m-4-4L8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div class="dz-title">Drag &amp; drop your chest X-ray</div>
+          <div class="dz-sub">or <span class="dz-link">browse from your device</span> · PNG / JPG up to 15 MB</div>
+          <input type="file" id="fileInput" accept="image/*" hidden>
+        </div>
+
+        <div id="previewBox" class="preview hidden">
+          <img id="previewImg" alt="Uploaded X-ray preview">
+          <div class="preview-meta">
+            <div id="fileName" class="file-name"></div>
+            <button id="removeBtn" class="btn-ghost" type="button">✕ Remove</button>
+          </div>
+        </div>
+
+        <button id="analyzeBtn" class="btn-primary" type="button" disabled>
+          <span class="btn-label">Analyze image</span>
+          <span class="spinner hidden"></span>
+        </button>
+        <div id="errorBox" class="error hidden"></div>
+      </div>
+
+      <div class="samples">
+        <div class="samples-title">No image handy? Try a sample scan:</div>
+        <div class="sample-row">
+          <button class="sample" data-sample="sample_normal_1.jpg" type="button"><img src="samples/sample_normal_1.jpg" alt="Sample normal chest X-ray"><span>Normal</span></button>
+          <button class="sample" data-sample="sample_normal_2.jpg" type="button"><img src="samples/sample_normal_2.jpg" alt="Sample normal chest X-ray"><span>Normal</span></button>
+          <button class="sample" data-sample="sample_pneumonia_1.jpg" type="button"><img src="samples/sample_pneumonia_1.jpg" alt="Sample pneumonia chest X-ray"><span>Pneumonia</span></button>
+          <button class="sample" data-sample="sample_pneumonia_2.jpg" type="button"><img src="samples/sample_pneumonia_2.jpg" alt="Sample pneumonia chest X-ray"><span>Pneumonia</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="resultBox" class="result hidden">
+      <div class="result-grid">
+        <div class="sum">
+          <div class="result-label">AI PREDICTION</div>
+          <div class="sum-top">
+            <div id="predClass" class="pred-class">—</div>
+          </div>
+          <div class="actions">
+            <a id="reportBtn" class="btn-report" href="#" download>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Download Report (PDF)
+            </a>
+            <button id="againBtn" class="btn-ghost big" type="button">Analyze another image</button>
+          </div>
+        </div>
+
+        <div class="viewer">
+          <div class="viewer-bar">
+            <div class="seg" role="tablist">
+              <button class="seg-btn active" data-view="original" type="button">Original</button>
+              <button class="seg-btn" data-view="overlay" type="button">Overlay</button>
+            </div>
+            <button id="bboxToggle" class="seg-btn toggle active" type="button">▣ Focus box</button>
+          </div>
+          <div class="viewer-frame">
+            <img id="viewBase" alt="Analysis view">
+            <img id="viewTop" alt="" class="hidden">
+            <div id="bbox" class="bbox hidden"><span class="bbox-label" id="bboxLabel"></span></div>
+          </div>
+          <div class="blend-row" id="blendRow">
+            <span>Original</span>
+            <input type="range" id="blend" min="0" max="100" value="100">
+            <span>Overlay</span>
+          </div>
+          <p class="viewer-note">Grad-CAM shows where the model looked — red/yellow influenced the decision most. It is a sensitivity map, not medical proof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.wasm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
